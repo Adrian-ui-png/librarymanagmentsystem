@@ -1,0 +1,187 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #f9f9f9;
+}
+
+.sidebar {
+    width: 250px;
+    background: #89c7da;
+    color: white;
+    padding: 15px;
+    height: 120vh;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 8px 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #007bff;
+    background-color: #f0f0f0;
+}
+
+.sidebar ul li a.active {
+    color: #fff;
+    background-color: #007bff;
+    font-weight: bold;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #b6efee;
+    padding: 15px;
+    border-bottom: 2px solid #ccc;
+}
+
+.user-info {
+    font-weight: bold;
+}
+
+.member-details {
+    margin-top: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border: "30px";
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.profile_photo {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    overflow: hidden;
+    border: 3px solid #fff; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    margin: 20px auto;
+  }
+  
+  .profile_photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block; 
+  }
+
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+
+
+
+
+
+.form-container {
+    width: 50%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+
+.form-container input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+
+.form-container input:focus {
+    border-color: #569ed1;
+    outline: none;
+}
+
+
+.add-btn {
+    background: linear-gradient(to right, #569ed1, #0073e6);
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 50%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+.add-btn:hover {
+    background: linear-gradient(to right, #0073e6, #005bb5);
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 80%;
+    }
+
+    .form-container input {
+        width: 100%;
+    }
+
+    .add-btn {
+        width: 80%;
+    }
+}

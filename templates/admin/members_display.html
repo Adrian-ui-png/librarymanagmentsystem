@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Member Details</title>
+    <link rel="stylesheet" href="/static/css/books.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Library Admin</h2>
+        <ul>
+            <li><a href="/"><i class="fas fa-home"></i> Go Home</a></li>
+            <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/books"><i class="fas fa-book"></i> Books</a></li>
+            <li><a href="/members_display"><i class="fas fa-user"></i> Members</a></li>
+            <li><a href="/records"><i class="fas fa-chart-bar"></i> Records</a></li>
+            <li><a href="/currently_borrowed"><i class="fas fa-chart-bar"></i> Currently Borrowed</a></li>
+            <li><a href="/admin-settings"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="/login"><i class="fas fa-cog"></i> Log out</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>Member Details</h2>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i> {{ greetings }}
+            </div>
+        </header>
+
+        <section class="book-management">
+            <h3>Members List</h3>
+            
+          
+            <form method="get" action="{{ url_for('members_display') }}" class="search-form">
+                <input type="text" name="search" placeholder="Search by Name..." >
+                <button type="submit">Search</button>
+            </form>
+
+            {% if user_data %}
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone No</th>
+                        <th>Address</th>
+                        <th>Date Of Birth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in user_data %}
+                    <tr>
+                        <td>{{ a[0] }}</td>
+                        <td>{{ a[1] }}</td>
+                        <td>{{ a[3] }}</td>
+                        <td>{{ a[4] }}</td>
+                        <td>{{ a[5] }}</td>
+                        <td>{{ a[6] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% else %}
+            <p style="text-align: center; color: red;">No members found matching your search.</p>
+            {% endif %}
+
+            <br>
+            <div class="button-container">
+                <button type="button" class="add-btn" onclick="window.location.href='/add_member';">Add Member</button>
+                <button type="button" class="add-btn" onclick="window.location.href='/delete_member';">Delete Member</button>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+  <title>Library Management Dashboard</title>
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+  <div class="sidebar">
+      <h2>Library Member</h2>
+      <ul>
+        <li><a href="/"><i class="fas fa-home"></i> Go Home</a></li>
+        <li><a href="/profile"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="/member_books"><i class="fas fa-book"></i> Books</a></li>
+        <li><a href="/currently_member"><i class="fas fa-chart-bar"></i> Currently Borrowed</a></li>
+        <li><a href="/notifications"><i class="fas fa-cog"></i> notofications</a></li>
+        <li><a href="/member-settings"><i class="fas fa-cog"></i> Settings</a></li>
+        <li><a href="/login"><i class="fas fa-cog"></i> Log out</a></li>
+        </ul>
+  </div>
+  <div class="main-content">
+      <header>
+          <h2>Dashboard</h2>
+          <div class="user-info">
+              <i class="fas fa-user-circle"></i> Hey, {{data[0][1]}}
+          </div>
+      </header>
+      <div class="member-details">
+          <h2> Profile</h2>
+  <br>
+  <div class="profile_photo">
+    <img src="{{profile_photo}}" alt="profile_photo">
+  </div>
+         
+<br><br>
+<div class="table-container">  
+  <table style="width:100%">
+    <tr>
+      <th>Name:</th>
+      <td>{{ data[0][1] }}</td>  
+    </tr>
+    <tr>
+      <th>Email:</th>
+      <td>{{ data[0][3] }}</td>  
+    </tr>
+    <tr>
+      <th>Phone No:</th>
+      <td>{{ data[0][4] }}</td>  
+    </tr>
+    <tr>
+      <th>Address:</th>
+      <td>{{ data[0][5] }}</td>  
+    </tr>
+    <tr>
+      <th>Date of Birth:</th>
+      <td>{{ data[0][6] }}</td>  
+    </tr>
+    <tr>
+      <th>Roll:</th>
+      <td>{{ data[0][7] }}</td>  
+    </tr>
+  </table>
+
+  
+  </body>
+  </html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Borrowed records</title>
+    <link rel="stylesheet" href="/static/css/books.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Library Member</h2>
+        
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Go Home</a></li>
+                <li><a href="/profile"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="/member_books"><i class="fas fa-book"></i> Books</a></li>
+                <li><a href="/currently_member"><i class="fas fa-chart-bar"></i> Currently Borrowed</a></li>
+                <li><a href="/notifications"><i class="fas fa-cog"></i> notofications</a></li>
+                <li><a href="/member-settings"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="/login"><i class="fas fa-cog"></i> Log out</a></li>
+                </ul>
+        
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>currently Borrowed</h2>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i> {{ greetings }}
+            </div>
+        </header>
+
+        <section class="book-management">
+            <h3>Borowed list List</h3>
+            
+            
+            <form method="get"  class="search-form">
+                <input type="text" name="search" placeholder="Search by Title..." >
+                <button type="submit">Search</button>
+            </form>
+            {% if book_data %}
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        
+                        <th>Book</th>
+                        <th>Borrowed Date</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in book_data %}
+                    <tr>
+                        <td>{{ user[0] }}</td>
+                        <td>{{ user[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+
+            {% else %}
+            <p style="text-align: center; color: red;">You have not borrowed book of the name {{name}}</p>
+        {% endif %}
+
+
+            <br>
+
+            </form>
+        </section>
+    </div>
+</body>
+</html>

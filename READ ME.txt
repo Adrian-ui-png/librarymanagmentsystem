@@ -1,0 +1,112 @@
+Group Members
+
+1.Adrian Jacob Antony
+2.AMAL
+3.Athulya
+
+
+SQL quERIEs
+
+
+
+
+create database library;
+
+
+use library;
+
+
+
+
+CREATE TABLE user (
+    usr_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_name CHAR(100),
+    paswd CHAR(100),
+    email CHAR(75),
+    ph_no VARCHAR(50),           
+    address VARCHAR(100),  
+    dob DATE,
+    roles CHAR(25),
+    nbb INT
+) AUTO_INCREMENT = 100;
+
+
+
+INSERT INTO user (user_name, paswd, email, ph_no, address, dob, roles, nbb) VALUES
+('Adrian', '123', 'adrian@example.com', '9876543210', '123 Main St', '2000-05-15', 'admin', 3),
+('Sophia', 'pass456', 'sophia@example.com', '9123456789', '456 Elm St', '1995-09-20', 'member', 2),
+('Liam', 'abc789', 'liam@example.com', '9988776655', '789 Oak St', '1998-03-10', 'member', 1),
+('Emma', 'emmaPass', 'emma@example.com', '9012345678', '321 Pine St', '1993-12-05', 'librarian', 3),
+('Noah', 'noah321', 'noah@example.com', '9876501234', '654 Cedar St', '2001-07-25', 'member', 0),
+('Olivia', 'olivia987', 'olivia@example.com', '9123987654', '987 Birch St', '1999-11-11', 'member', 1),
+('James', 'james456', 'james@example.com', '9234567890', '123 Maple St', '1985-04-18', 'admin', 3),
+('Ava', 'ava654', 'ava@example.com', '9345678901', '789 Spruce St', '2002-01-30', 'member', 2),
+('Lucas', 'lucas789', 'lucas@example.com', '9456789012', '567 Redwood St', '1997-08-22', 'librarian', 1),
+('Mia', 'mia123', 'mia@example.com', '9567890123', '890 Willow St', '1994-06-14', 'member', 0);
+
+
+
+
+CREATE TABLE borrowing_records (
+    record_id INT NOT NULL AUTO_INCREMENT,
+    usr_id INT NOT NULL,
+    book_id INT NOT NULL,
+    borrow_date VARCHAR(20),
+    return_date VARCHAR(20),
+    PRIMARY KEY (record_id),
+    FOREIGN KEY (usr_id) REFERENCES user(usr_id),
+    FOREIGN KEY (book_id) REFERENCES books(book_id)
+) AUTO_INCREMENT = 100;
+
+
+INSERT INTO books (book_name, author, publisher, genre, availability) VALUES
+('The Great Gatsby', 'F. Scott Fitzgerald', 'Scribner', 'Fiction', 'Available'),
+('To Kill a Mockingbird', 'Harper Lee', 'J.B. Lippincott & Co.', 'Fiction', 'Available'),
+('1984', 'George Orwell', 'Secker & Warburg', 'Dystopian', 'Not Available'),
+('The Catcher in the Rye', 'J.D. Salinger', 'Little, Brown', 'Fiction', 'Available'),
+('Pride and Prejudice', 'Jane Austen', 'T. Egerton', 'Romance', 'Available'),
+('The Hobbit', 'J.R.R. Tolkien', 'George Allen & Unwin', 'Fantasy', 'Not Available'),
+('Moby Dick', 'Herman Melville', 'Harper & Brothers', 'Adventure', 'Available'),
+('War and Peace', 'Leo Tolstoy', 'The Russian Messenger', 'Historical', 'Available'),
+('The Alchemist', 'Paulo Coelho', 'HarperOne', 'Philosophical', 'Not Available'),
+('Crime and Punishment', 'Fyodor Dostoevsky', 'The Russian Messenger', 'Psychological', 'Available');
+
+
+
+
+insert INTO borrowing_records (usr_id, book_id, borrow_date, return_date) VALUES
+(101, 100, '2024-12-01', '2024-12-15'),
+(102, 101, '2024-11-20', '2024-12-04'),
+(103, 102, '2024-12-05', '2024-12-20'),
+(104, 103, '2024-11-25', '2024-12-10'),
+(105, 104, '2024-12-10', '2024-12-24'),
+(106, 105, '2024-11-30', '2024-12-14'),
+(107, 106, '2024-12-03', '2024-12-17'),
+(108, 107, '2024-12-07', '2024-12-21');
+
+
+
+
+
+CREATE TABLE active_borrowings (
+    usr_id INT NOT NULL,
+    book_id INT NOT NULL,
+	borrow_date VARCHAR(10) NOT NULL,
+    PRIMARY KEY (usr_id, book_id),
+    
+    FOREIGN KEY (usr_id) REFERENCES user(usr_id),
+    FOREIGN KEY (book_id) REFERENCES books(book_id)
+);
+
+
+
+
+INSERT INTO active_borrowings (usr_id, book_id, borrow_date) VALUES 
+(102, 101, '2024-01-20'), 
+(103, 102, '2024-01-21'), 
+(104, 104, '2024-01-18'),  
+(105, 105, '2024-01-22'),  
+(106, 103, '2024-01-23');  
+
+
+

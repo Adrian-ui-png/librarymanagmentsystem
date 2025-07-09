@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Details</title>
+    <link rel="stylesheet" href="/static/css/add_book.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Library Member</h2>
+        <ul>
+            <li><a href="/index"><i class="fas fa-home"></i> Go Home</a></li>
+            <li><a href="/profile"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/member_books"><i class="fas fa-book"></i> Books</a></li>
+            <li><a href="/currently_member"><i class="fas fa-chart-bar"></i> Currently Borrowed</a></li>
+            <li><a href="/notifications"><i class="fas fa-cog"></i> notofications</a></li>
+            <li><a href="/member-settings"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="/login"><i class="fas fa-cog"></i> Log out</a></li>
+            </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h2>Dashboard</h2>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </header>
+        <div class="member-details">
+            <h2>borrow a book</h2>
+            <head>
+                <link rel="stylesheet" href="/static/css/form.css">
+            </head>
+            
+            <div class="form-container">
+                <h3>Enter the book name to be borrow</h3>
+                <form  method="POST">
+                    <input type="text" name="member_identifier" placeholder="Enter books name" required>
+                    <button type="submit" class="add-btn">Borrow</button>
+                </form>
+            </div>
+            <br>
+            {% if msg %}
+            <p style="color: rgb(17, 152, 12); text-align: center;"><b>{{ msg }}</b></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

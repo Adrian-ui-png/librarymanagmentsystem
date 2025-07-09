@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Details</title>
+    <link rel="stylesheet" href="/static/css/books.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Library Admin</h2>
+        <ul>
+            <li><a href="/"><i class="fas fa-home"></i> Go Home</a></li>
+            <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="/books"><i class="fas fa-book"></i> Books</a></li>
+                <li><a href="/members_display"><i class="fas fa-user"></i> Members</a></li>
+                <li><a href="/records"><i class="fas fa-chart-bar"></i> Records</a></li>
+                <li><a href="/currently_borrowed"><i class="fas fa-chart-bar"></i> Currently Borrowed</a></li>
+                <li><a href="/admin-settings"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="/login"><i class="fas fa-cog"></i> Log out</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>Borrowed Records</h2>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i> 
+            </div>
+        </header>
+
+        <section class="book-management">
+            <h3>Books List</h3>
+            
+            
+            <form method="get"  class="search-form">
+                <input type="text" name="search" placeholder="Search by Title..." value="{{ request.args.get('search', '') }}">
+                <button type="submit">Search</button>
+            </form>
+            {% if user_data %}
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Record id</th>
+                        <th>user</th>
+                        <th>book</th>
+                        <th>Borrow date</th>
+                        <th>Return date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in user_data %}
+                    <tr>
+                        <td>{{user[0]}}</td>
+                        <td>{{ user[1] }}</td>
+                        <td>{{ user[2] }}</td>
+                        <td>{{ user[3] }}</td>
+                        <td>{{ user[4] }}</td>
+                        <td>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+    <p style="text-align: center; color: red;">No such record of the name {{name}}</p>
+{% endif %}
+            <br>
+        </section>
+    </div>
+</body>
+</html>

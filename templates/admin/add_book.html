@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+  <title>Add Book</title>
+  <link rel="stylesheet" href="/static/css/add_book.css">
+</head>
+<body>
+  <div class="sidebar">
+      <h2>Library Admin</h2>
+      <ul>
+        <li><a href="/"><i class="fas fa-home"></i> Go Home</a></li>
+        <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/books"><i class="fas fa-book"></i> Books</a></li>
+            <li><a href="/members_display"><i class="fas fa-user"></i> Members</a></li>
+            <li><a href="/records"><i class="fas fa-chart-bar"></i> Records</a></li>
+            <li><a href="/currently_borrowed"><i class="fas fa-chart-bar"></i> Currently Borrowed</a></li>
+            <li><a href="/admin-settings"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="/login"><i class="fas fa-cog"></i> Log out</a></li>
+      </ul>
+  </div>
+  <div class="main-content">
+      <header>
+          <h2>Dashboard</h2>
+          <div class="user-info">
+              <i class="fas fa-user-circle"></i> Hey, Adrian Jacob
+          </div>
+      </header>
+      <div class="member-details">
+          <h2> Add a Book</h2>
+          <head>
+            <link rel="stylesheet" href="/static/css/form.css">
+        </head>
+        
+        
+            <div class="form-container">
+                <h3>Add a New Book</h3>
+                <form  method="post">
+                    <input type="text" name="title" placeholder="Title" required>
+                    <input type="text" name="genre" placeholder="Genre" required>
+                    <input type="text" name="author" placeholder="Author" required>
+                    <input type="text" name="publisher" placeholder="Publisher" required>
+                    <button type="submit" class="add-btn">Add Book</button>
+                </form>
+            </div>
+            <br>
+        {% if msg %}
+            <p style="color: rgb(17, 152, 12); text-align: center;"><b>{{ msg }}</b></p>
+        {% endif %}
+        </body>
+        </html>
+        

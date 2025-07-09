@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Details</title>
+    <link rel="stylesheet" href="/static/css/books.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Library Admin</h2>
+        <ul>
+            <li><a href="/"><i class="fas fa-home"></i> Go Home</a></li>
+            <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="/books"><i class="fas fa-book"></i> Books</a></li>
+                <li><a href="/members_display"><i class="fas fa-user"></i> Members</a></li>
+                <li><a href="/records"><i class="fas fa-chart-bar"></i> Records</a></li>
+                <li><a href="/currently_borrowed"><i class="fas fa-chart-bar"></i> Currently Borrowed</a></li>
+                <li><a href="/admin-settings"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="/login"><i class="fas fa-cog"></i> Log out</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>Book Management</h2>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i> {{ greetings }}
+            </div>
+        </header>
+
+        <section class="book-management">
+            <h3>Books List</h3>
+            
+           
+            <form method="get" action="" class="search-form">
+                <input type="text" name="search" placeholder="Search by Title..." >
+                <button type="submit">Search</button>
+            </form>
+
+           
+            {% if book_data %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in book_data %}
+            <tr>
+                <td>{{ book[0] }}</td>
+                <td>{{ book[1] }}</td>
+                <td>{{ book[4] }}</td>
+                <td>{{ book[2] }}</td>
+                <td>{{ book[3] }}</td>
+                <td>{{ book[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p style="text-align: center; color: red;">No books available of the name {{name}}</p>
+{% endif %}
+            <br>
+            <div class="button-container">
+                <button type="button" class="add-btn" onclick="window.location.href='/add_book';">Add Book</button>
+                <button type="button" class="add-btn" onclick="window.location.href='/delete_book';">Delete Book</button>
+            </div>
+            
+
+
+
+
+
+
+            </form>
+        </section>
+    </div>
+</body>
+</html>

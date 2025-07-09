@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+  <title>Notification</title>
+  <link rel="stylesheet" href="/static/css/notification.css">
+  <style>
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      th, td {
+          border: 1px solid black;
+          padding: 10px;
+          text-align: left;
+      }
+      th:first-child, td:first-child {
+          width: 10%; 
+          text-align: center;
+      }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+      <h2>Library Member</h2>
+      <ul>
+        <li><a href="/"><i class="fas fa-home"></i> Go Home</a></li>
+        <li><a href="/profile"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="/member_books"><i class="fas fa-book"></i> Books</a></li>
+        <li><a href="/currently_member"><i class="fas fa-chart-bar"></i> Currently Borrowed</a></li>
+        <li><a href="/notifications"><i class="fas fa-cog"></i> Notifications</a></li>
+        <li><a href="/member-settings"><i class="fas fa-cog"></i> Settings</a></li>
+        <li><a href="/login"><i class="fas fa-cog"></i> Log out</a></li>
+      </ul>
+  </div>
+  <div class="main-content">
+      <header>
+          <h2>Dashboard</h2>
+          <div class="user-info">
+              <i class="fas fa-user-circle"></i> 
+          </div>
+      </header>
+
+      <div class="notifications">
+          {% if notifications %}
+          <table>
+              <thead>
+                  <tr>
+                      <th>No</th>
+                      <th>Notification</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for notification in notifications %}
+                  <tr>
+                      <td>{{ notification[0] }}</td>
+                      <td>{{ notification[1] }}</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+          {% else  %}
+          <h3 align="center"><b>{{ msg }}</b></h3>
+          {% endif %}
+      </div>
+  </div>
+</body>
+</html>
